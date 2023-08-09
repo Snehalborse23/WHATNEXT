@@ -1,0 +1,72 @@
+<html>
+          <head>
+          <title> What Next by Snehal Borse </title>
+          <style>
+                   * { font-size:60px } 
+                   body { background-color:lightpink; }
+          
+           </style>
+           <script>
+                   function find()
+                   { 
+                           event.preventDefault();
+                           let name = document.getElementById("name");
+                           let job = document.getElementById("job");
+                           let ms = document.getElementById("ms");
+                           let mba = document.getElementById("mba");
+                           let ans = document.getElementById("ans");
+
+                        
+                          
+                           let choice = "";
+                           if (job.checked)        choice = "Job";
+                           else if (ms.checked)    choice = "MS";
+                           else                    choice = "MBA";
+                          
+                           let msg = "name " + name.value + "choice" + choice;
+                           ans.innerHTML = msg;
+
+                          if (name.value =="")
+                          {
+                                  alert("name cannot be empty");
+                                  ans.innerHTML="";
+                                  name.focus();
+                                  return;
+                          }
+                          else if (name.value.trim()=="")
+                          {
+                          alert("name cannot be only spaces");
+                          name.value="";
+                          ansinnerHTML="";
+                          name.focus();
+                          return;
+                          }
+                          else if (! name.value.match(/^[A-Za-z]+$/))
+                          {
+                             alert("name should contain only alpha");
+                             name.value="";
+                             ans.innerHTML="";
+                             name.focus();
+                             return; 
+                          }
+                  }
+
+           </script>
+           <head>
+           <body>
+           <center>
+           <h1> What Next ??? </h1>
+           <form onsubmit="find()">
+           <input type="text" step="any" placeholder="enter ur name" id="name"/>
+           <br><br>
+           <input type="radio" name="c" id="job" checked="true"/> Job
+           <input type="radio" name="c" id="ms"/> MS
+           <input type="radio" name="c" id="mba"/> MBA
+           <br><br>
+           <input type="submit"/>
+           </form>
+           <h2 id="ans"> </h2>
+           </center>
+           </body>
+
+</html>
